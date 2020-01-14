@@ -6,9 +6,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
+<ion-content class="ion-padding">
+  <div>
     The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be
+      your guide.</p>
   </div>
+
+  <form #f="ngForm" [formGroup]="phoneForm">
+    <ngx-intl-tel-input [cssClass]="'custom'"
+      [preferredCountries]="[CountryISO.Egypt, CountryISO.SaudiArabia, CountryISO.UnitedArabEmirates]"
+      [enableAutoCountrySelect]="false" [enablePlaceholder]="true" [searchCountryFlag]="true"
+      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+      [selectedCountryISO]="CountryISO.Egypt" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+      [phoneValidation]="true" [separateDialCode]="separateDialCode" formControlName="phone">
+    </ngx-intl-tel-input>
+    <div *ngIf="f.form.controls['phone'].invalid && f.form.controls['phone'].touched">
+      <small class="text-danger" *ngIf="f.form.controls['phone'].errors?.required">Phone Number Required</small>
+      <small class="text-danger"
+        *ngIf="!f.form.controls['phone'].errors?.required && f.form.controls['phone'].invalid">Invalid Phone
+        Number</small>
+    </div>
+  </form>
+
 </ion-content>

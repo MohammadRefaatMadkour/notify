@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>controls</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Hair Color</ion-label>
+      <ion-select value="" okText="Okay" cancelText="Dismiss" (ionChange)="selectedValue($event)">
+        <ion-select-option value="brown">Brown</ion-select-option>
+        <ion-select-option value="blonde">Blonde</ion-select-option>
+        <ion-select-option value="black">Black</ion-select-option>
+        <ion-select-option value="red">Red</ion-select-option>
+        <ion-select-option *ngIf="newHospitalName" value="{{newHospitalName}}">{{newHospitalName}}</ion-select-option>
+        <ion-select-option value="other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="Color == 'other'">
+      <ion-input type="text" placeholder="Enter Hospital Name" clear-input="true" (ionInput)="newHospital($event)"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="save()" color="primary" size="small" class="mt-3">
+      Click me
+    </ion-button>
+
+  </ion-list>
+</ion-content>
