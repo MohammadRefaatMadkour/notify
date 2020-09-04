@@ -35,7 +35,7 @@
     "ng-scroll-calendar": "^1.1.0",
     "ngx-bootstrap": "^5.2.0",
     "ngx-intl-tel-input": "^2.3.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
